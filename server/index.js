@@ -34,31 +34,36 @@ app.get('/api/Home', authController.logout);
 app.post('/api/Home', authController.register);
 app.post('/api/Home', authController.login);
 
-app.get('/api/Case', )
+app.get('/api/Case', partsController.caseParts);
 app.post('/api/Case', )
 
-app.get('/api/Motherboard', )
+app.get('/api/Motherboard', partsController.motherboardParts);
 app.post('/api/Motherboard', )
 
-app.get('/api/CPU', )
+app.get('/api/CPU', partsController.cpuParts);
 app.post('/api/CPU', )
 
-app.get('/api/GPU', )
+app.get('/api/GPU', partsController.gpuParts);
 app.post('/api/GPU', )
 
-app.get('/api/Cooler', )
+app.get('/api/Cooler', partsController.coolerParts);
 app.post('/api/Cooler', )
 
-app.get('/api/Memory', )
+app.get('/api/Memory', partsController.memoryParts);
 app.post('/api/Memory', )
 
-app.get('/api/Fans', )
+app.get('/api/Fans', partsController.fanParts);
 app.post('/api/Fans', )
 
-app.get('/api/PSU', )
+app.get('/api/PSU', partsController.psuParts);
 app.post('/api/PSU', )
 
 app.get('/api/Checkout', )
 app.delete('/api/Checkout', )
 
 app.listen(PORT, ()=> console.log(`listening on ${PORT}`))
+
+// app.get('/api/PSU', (req,res) => {
+//     const psus = req.app.get('db').get_psu_parts(1);
+//     return res.status(200).send(psus);
+// });
