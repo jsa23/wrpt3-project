@@ -1,7 +1,7 @@
 CREATE TABLE transactions (
     user_id SERIAL PRIMARY KEY,
     number_of_items INTEGER,
-    myDate DATE,
+    created_at DATE,
     total INTEGER
 );
 

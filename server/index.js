@@ -59,6 +59,7 @@ app.get('/api/PSU', partsController.psuParts);
 app.post('/api/PSU', )
 
 app.get('/api/Checkout', )
+app.put('/api/Checkout', )
 app.delete('/api/Checkout', )
 
 app.listen(PORT, ()=> console.log(`listening on ${PORT}`))
