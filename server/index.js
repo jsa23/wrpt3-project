@@ -30,12 +30,12 @@ app.use(
 );
 
 app.get('/api/Home', partsController.computerParts);
-app.get('/api/Home', authController.logout);
-app.post('/api/Home', authController.register);
-app.post('/api/Home', authController.login);
+app.get('/api/logout', authController.logout);
+app.post('/api/register', authController.register);
+app.post('/api/login', authController.login);
 
-app.get('/api/Case', partsController.caseParts);
-app.post('/api/Case', )
+app.get('/api/case', partsController.caseParts);
+app.post('/api/case', )
 
 app.get('/api/Motherboard', partsController.motherboardParts);
 app.post('/api/Motherboard', )

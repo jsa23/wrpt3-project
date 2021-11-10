@@ -1,11 +1,27 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 
-function App() {
-  return (
+class App extends Component {
+  constructor(){
+    super();
+
+    this.state ={
+      players: '',
+    }
+    
+  }
+
+  componentDidMount(){
+    axios.get('localhost:5050/api/case')
+    .then(console.log('stuff gotten'))
+    .catch(err => console.log(err))
+  }
+
+  render(){
+    return(
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -19,7 +35,8 @@ function App() {
         </a>
       </header>
     </div>
-  );
-}
+    )}
+  }
 
 export default App;
+
