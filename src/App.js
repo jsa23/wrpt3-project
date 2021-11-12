@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './App.css';
 
 class App extends Component {
@@ -7,16 +7,16 @@ class App extends Component {
     super();
 
     this.state ={
-      players: '',
+      name: 'Jordan',
     }
-    
+
   }
 
-  componentDidMount(){
-    axios.get('localhost:5050/api/case')
-    .then(console.log('stuff gotten'))
-    .catch(err => console.log(err))
-  }
+  // componentDidMount(){
+  //   axios.get('localhost:5050/api/case')
+  //   .then(({ data }) => this.setState({name: data }))
+  //   .catch(err => console.log(err))
+  // }
 
   render(){
     return(

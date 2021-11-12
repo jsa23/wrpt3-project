@@ -23,7 +23,7 @@ CREATE TABLE items (
 INSERT INTO items
 (item_image, item_name, item_type, stars, price)
 VALUES
-();
+()
 
 
 CREATE TABLE users (

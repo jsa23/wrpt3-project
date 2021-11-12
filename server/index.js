@@ -29,7 +29,7 @@ app.use(
     })
 );
 
-app.get('/api/Home', partsController.computerParts);
+app.get('/api/home', partsController.computerParts);
 app.get('/api/logout', authController.logout);
 app.post('/api/register', authController.register);
 app.post('/api/login', authController.login);
@@ -37,30 +37,30 @@ app.post('/api/login', authController.login);
 app.get('/api/case', partsController.caseParts);
 app.post('/api/case', )
 
-app.get('/api/Motherboard', partsController.motherboardParts);
-app.post('/api/Motherboard', )
+app.get('/api/motherboard', partsController.motherboardParts);
+app.post('/api/motherboard', )
 
-app.get('/api/CPU', partsController.cpuParts);
-app.post('/api/CPU', )
+app.get('/api/cpu', partsController.cpuParts);
+app.post('/api/cpu', )
 
-app.get('/api/GPU', partsController.gpuParts);
-app.post('/api/GPU', )
+app.get('/api/gpu', partsController.gpuParts);
+app.post('/api/gpu', )
 
-app.get('/api/Cooler', partsController.coolerParts);
-app.post('/api/Cooler', )
+app.get('/api/cooler', partsController.coolerParts);
+app.post('/api/cooler', )
 
-app.get('/api/Memory', partsController.memoryParts);
-app.post('/api/Memory', )
+app.get('/api/memory', partsController.memoryParts);
+app.post('/api/memory', )
 
-app.get('/api/Fans', partsController.fanParts);
-app.post('/api/Fans', )
+app.get('/api/fans', partsController.fanParts);
+app.post('/api/fans', )
 
-app.get('/api/PSU', partsController.psuParts);
-app.post('/api/PSU', )
+app.get('/api/psu', partsController.psuParts);
+app.post('/api/psu', )
 
-app.get('/api/Checkout', )
-app.put('/api/Checkout', )
-app.delete('/api/Checkout', )
+app.get('/api/checkout', )
+app.put('/api/checkout', )
+app.delete('/api/checkout', )
 
 app.listen(PORT, ()=> console.log(`listening on ${PORT}`))
 
