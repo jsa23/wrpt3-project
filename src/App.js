@@ -14,7 +14,7 @@ class App extends Component {
 
   // componentDidMount(){
   //   axios.get('localhost:5050/api/case')
-  //   .then(({ data }) => this.setState({name: data }))
+  //   .then(console.log('got the stuff'))
   //   .catch(err => console.log(err))
   // }
 

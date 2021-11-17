@@ -2,7 +2,7 @@ CREATE TABLE transactions (
     user_id SERIAL PRIMARY KEY,
     number_of_items INTEGER,
     created_at DATE,
-    total INTEGER
+    total MONEY
 );
 
 INSERT INTO transactions
@@ -17,13 +17,13 @@ CREATE TABLE items (
     item_name VARCHAR(240),
     item_type VARCHAR(50),
     stars INTEGER,
-    price INTEGER
+    price MONEY
 );
 
 INSERT INTO items
 (item_image, item_name, item_type, stars, price)
 VALUES
-()
+();
 
 
 CREATE TABLE users (
