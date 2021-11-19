@@ -1,2 +1,2 @@
 SELECT * FROM items
-WHERE item_type = motherboards;
+WHERE item_type = 'motherboard';

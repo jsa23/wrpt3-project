@@ -1,2 +1,2 @@
 SELECT * FROM items
-WHERE item_type = gpus;
+WHERE item_type = 'gpu';

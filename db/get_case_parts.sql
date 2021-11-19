@@ -1,2 +1,2 @@
--- WHERE item_type = "cases";
-SELECT * FROM items;
+SELECT * FROM items
+WHERE item_type = 'case';

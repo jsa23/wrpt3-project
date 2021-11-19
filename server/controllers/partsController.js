@@ -20,27 +20,27 @@ module.exports = {
     },
 
     gpuParts: async(req,res) => {
-        const gpus = req.app.get('db').get_gpu_parts();
+        const gpus = await req.app.get('db').get_gpu_parts();
         return res.status(200).send(gpus);
     },
 
     coolerParts: async(req,res) => {
-        const coolers = req.app.get('db').get_cooler_parts();
+        const coolers = await req.app.get('db').get_cooler_parts();
         return res.status(200).send(coolers);
     },
 
     memoryParts: async(req,res) => {
-        const memory = req.app.get('db').get_memory_parts();
+        const memory = await req.app.get('db').get_memory_parts();
         return res.status(200).send(memory);
     },
 
     fanParts: async(req,res) => {
-        const fans = req.app.get('db').get_fan_parts();
+        const fans = await req.app.get('db').get_fan_parts();
         return res.status(200).send(fans);
     },
 
     psuParts: async(req,res) => {
-        const psus = req.app.get('db').get_psu_parts();
+        const psus = await req.app.get('db').get_psu_parts();
         return res.status(200).send(psus);
     },
 }

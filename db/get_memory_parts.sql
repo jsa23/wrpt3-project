@@ -1,2 +1,2 @@
 SELECT * FROM items
-WHERE item_type = memory;
+WHERE item_type = 'memory';

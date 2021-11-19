@@ -1,2 +1,2 @@
 SELECT * FROM items
-WHERE item_type = coolers;
+WHERE item_type LIKE 'cooler';

@@ -63,8 +63,3 @@ app.put('/api/checkout', )
 app.delete('/api/checkout', )
 
 app.listen(PORT, ()=> console.log(`listening on ${PORT}`))
-
-// app.get('/api/PSU', (req,res) => {
-//     const psus = req.app.get('db').get_psu_parts(1);
-//     return res.status(200).send(psus);
-// });

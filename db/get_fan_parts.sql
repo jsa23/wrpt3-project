@@ -1,2 +1,2 @@
 SELECT * FROM items
-WHERE item_type = fans;
+WHERE item_type = 'fan';

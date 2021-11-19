@@ -1,2 +1,2 @@
 SELECT * FROM items
-WHERE item_type = psus;
+WHERE item_type = 'psu';
