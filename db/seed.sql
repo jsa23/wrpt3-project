@@ -1,5 +1,5 @@
 CREATE TABLE transactions (
-    user_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     number_of_items INTEGER,
     created_at DATE,
     total MONEY

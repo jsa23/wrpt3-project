@@ -17,7 +17,7 @@ massive({
     connectionString: CONNECTION_STRING,
     ssl: { rejectUnauthorized: false }
 }).then(db => {
-    app.set('db', db);
+    app.set('db', db);  
     console.log('db connected');
 });
 
@@ -28,6 +28,8 @@ app.use(
         secret: SESSION_SECRET,
     })
 );
+
+app.use(express.static(`${__dirname}/../build`));
 
 app.get('/api/home', partsController.computerParts);
 app.get('/api/logout', authController.logout);
