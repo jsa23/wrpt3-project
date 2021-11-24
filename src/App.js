@@ -17,11 +17,7 @@ class App extends Component {
       <div className="App">
       <header className="App-header">
         <nav className="nav">
-        <div>Computer builder</div>
-        <div className="link-wrap"></div>
-        <Link to="/" classname="links">Home</Link>
-          <Link to="/cases" className="links">Cases</Link>
-        <img src="https://m.media-amazon.com/images/I/615X+Pe+CoL._AC_UY218_.jpg" className ="App-logo" alt="logo" /> 
+          <Link to="/" className="home-btn-list"></Link>
         </nav>
         {routes}
         </header>

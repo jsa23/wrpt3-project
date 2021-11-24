@@ -13,15 +13,15 @@ import Checkout from "./Components/Checkout/Checkout";
 
 export default (
 <Switch>
-    <Route exact path="/" Component ={Home}/>
-    <Route path="/cases"  Component ={Cases}/>
-    <Route path="/coolers" Component ={Coolers}/>
-    <Route path="/Cpus" Component ={Cpus}/>
-    <Route path="/Fans" Component ={Fans}/>
-    <Route path="/gpus" Component ={Gpus}/>
-    <Route path="/memory" Component ={Memory}/>
-    <Route path="/motherboards" Component ={Motherboards}/>
-    <Route path="/psus"  Component ={Psus}/>
-    <Route path="/checkout" Component ={Checkout}/>
+    <Route component ={Home} exact path="/" />
+    <Route component ={Cases} path="/cases"  />
+    <Route Component ={Coolers} path="/coolers" />
+    <Route Component ={Cpus} path="/cpus" />
+    <Route Component ={Fans} path="/fans" />
+    <Route Component ={Gpus} path="/gpus" />
+    <Route Component ={Memory} path="/memory" />
+    <Route Component ={Motherboards} path="/motherboards" />
+    <Route Component ={Psus} path="/psus"  />
+    <Route Component ={Checkout} path="/checkout" />
 </Switch>
 );
