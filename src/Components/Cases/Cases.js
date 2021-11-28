@@ -10,14 +10,6 @@ class Cases extends Component {
             cases: []
         }
     }
-// componentDidMount() {
-//  axios.get(`http://localhost:5050/api/motherboards`)
-//  .then(results => {
-//      this.setState({
-//          cases: results.data
-//      });
-//  });
-// }
 
     render(){
         return(
@@ -29,4 +21,5 @@ class Cases extends Component {
         )
     }
 }
+
 export default Cases;
