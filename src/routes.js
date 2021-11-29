@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
-import Cases from "./Components/Cases/Cases";
+import cases from "./Components/Cases/Cases";
 import Coolers from "./Components/Coolers/Coolers";
 import Cpus from "./Components/Cpus/Cpus";
 import Fans from "./Components/Fans/Fans";
@@ -14,14 +14,14 @@ import Checkout from "./Components/Checkout/Checkout";
 export default (
 <Switch>
     <Route component ={Home} exact path="/" />
-    <Route component ={Cases} path="/cases"  />
-    <Route Component ={Coolers} path="/coolers" />
-    <Route Component ={Cpus} path="/cpus" />
-    <Route Component ={Fans} path="/fans" />
-    <Route Component ={Gpus} path="/gpus" />
-    <Route Component ={Memory} path="/memory" />
-    <Route Component ={Motherboards} path="/motherboards" />
-    <Route Component ={Psus} path="/psus"  />
-    <Route Component ={Checkout} path="/checkout" />
+    <Route component ={cases} path="/cases"  />
+    <Route component ={Motherboards} path="/motherboards" />
+    <Route component ={Cpus} path="/cpus" />
+    <Route component ={Gpus} path="/gpus" />
+    <Route component ={Coolers} path="/coolers" />
+    <Route component ={Fans} path="/fans" />
+    <Route component ={Memory} path="/memory" />
+    <Route component ={Psus} path="/psus"  />
+    <Route component ={Checkout} path="/checkout" />
 </Switch>
 );

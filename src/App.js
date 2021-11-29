@@ -15,12 +15,13 @@ class App extends Component {
     return(
     <HashRouter>
       <div className="App">
-      <header className="App-header">
         <nav className="nav">
-          <Link to="/" className="home-btn-list"></Link>
+          <Link to="/" className="home-btn-list">Home</Link>
+          <Link to="/cases" className="try_home_button">
+            <button className="try-btn" Case try button>Case try button</button>
+            </Link>
         </nav>
         {routes}
-        </header>
       </div>
     </HashRouter>
     )}

@@ -5,7 +5,6 @@ const session = require('express-session');
 const authController = require('./controllers/authController');
 const partsController = require('./controllers/partsController');
 
-const PORT = 5050;
 
 const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -36,20 +35,20 @@ app.get('/api/logout', authController.logout);
 app.post('/api/register', authController.register);
 app.post('/api/login', authController.login);
 
-app.get('/api/case', partsController.caseParts);
-app.post('/api/case', )
+app.get('/#/cases', partsController.caseParts);
+app.post('/api/cases', )
 
-app.get('/api/motherboard', partsController.motherboardParts);
-app.post('/api/motherboard', )
+app.get('/api/motherboards', partsController.motherboardParts);
+app.post('/api/motherboards', )
 
-app.get('/api/cpu', partsController.cpuParts);
-app.post('/api/cpu', )
+app.get('/api/cpus', partsController.cpuParts);
+app.post('/api/cpus', )
 
-app.get('/api/gpu', partsController.gpuParts);
-app.post('/api/gpu', )
+app.get('/api/gpus', partsController.gpuParts);
+app.post('/api/gpus', )
 
-app.get('/api/cooler', partsController.coolerParts);
-app.post('/api/cooler', )
+app.get('/api/coolers', partsController.coolerParts);
+app.post('/api/coolers', )
 
 app.get('/api/memory', partsController.memoryParts);
 app.post('/api/memory', )
@@ -57,11 +56,11 @@ app.post('/api/memory', )
 app.get('/api/fans', partsController.fanParts);
 app.post('/api/fans', )
 
-app.get('/api/psu', partsController.psuParts);
-app.post('/api/psu', )
+app.get('/api/psus', partsController.psuParts);
+app.post('/api/psus', )
 
 app.get('/api/checkout', )
 app.put('/api/checkout', )
 app.delete('/api/checkout', )
 
-app.listen(PORT, ()=> console.log(`listening on ${PORT}`))
+app.listen(3000, ()=> console.log(`listening on 3000`))

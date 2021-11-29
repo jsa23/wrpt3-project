@@ -1,16 +1,16 @@
 module.exports = {
-    computerParts: async(req, res) => {
-        const parts = await req.app.get('db').get_computer_parts();
+    computerParts: (req, res) => {
+        const parts =  req.app.get('db').get_computer_parts();
         return res.status(200).send(parts);
     },
 
-    caseParts: async(req, res) => {
-        const cases = await req.app.get('db').get_case_parts();
-        return res.status(200).send(cases);
+    caseParts: (req, res) => {
+        const items =req.app.get('db').get_case_parts();
+        return res.status(200).send(items);
     },
 
-    motherboardParts: async(req, res) => {
-        const motherboards = await req.app.get('db').get_motherboard_parts();
+    motherboardParts: (req, res) => {
+        const motherboards =  req.app.get('db').get_motherboard_parts();
         return res.status(200).send(motherboards);
     },
 
