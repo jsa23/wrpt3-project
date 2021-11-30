@@ -13,7 +13,7 @@ class Cpus extends Component {
 
     render(){
         return(
-            <div className="box2">pick this one to go to gpus
+            <div className="box1">pick this one to go to gpus
                 <Link to="/gpus">
                     <button className="btn">Gpus</button>
                 </Link>
