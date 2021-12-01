@@ -13,17 +13,19 @@ class Cases extends Component {
     }
 
     componentDidMount(){
-        axios.get(`https://localhost:3000/#/cases`)
-        .then(res => {this.setState({cases: res.data})
-        (console.log(res.data))
+        axios.get(`/api/cases`)
+        .then(res => {this.setState({ cases: res.data })
+        })
+        .catch(error => { console.log(error)
         });
     }
 
     render(){
         return(
             <div className="box1">Heres some cases
-            <h1>{this.cases}</h1>
-                <Link to="/motherboards">
+            <h1>
+            </h1>
+                <Link to="/api/motherboards">
                     <button className="btn">Motherboards</button>
                 </Link>
             </div>

@@ -5,12 +5,6 @@ import './App.css';
 
 class App extends Component {
 
-  // componentDidMount(){
-  //   axios.get('localhost:5050/api/case')
-  //   .then(console.log('got the stuff'))
-  //   .catch(err => console.log(err))
-  // }
-
   render(){
     return(
     <HashRouter>

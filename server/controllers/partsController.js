@@ -4,13 +4,13 @@ module.exports = {
         return res.status(200).send(parts);
     },
 
-    caseParts: (req, res) => {
-        const items =req.app.get('db').get_case_parts();
-        return res.status(200).send(items);
+    caseParts: async (req, res) => {
+        const cases = await req.app.get('db').get_case_parts();
+        return res.status(200).send(cases);
     },
 
-    motherboardParts: (req, res) => {
-        const motherboards =  req.app.get('db').get_motherboard_parts();
+    motherboardParts: async (req, res) => {
+        const motherboards =  await req.app.get('db').get_motherboard_parts();
         return res.status(200).send(motherboards);
     },
 
