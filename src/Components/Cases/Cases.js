@@ -16,16 +16,19 @@ class Cases extends Component {
         axios.get(`/api/cases`)
         .then(res => {this.setState({ cases: res.data })
         })
-        .catch(error => { console.log(error)
-        });
     }
 
+
     render(){
+        const { cases } = this.state;
         return(
             <div className="box1">Heres some cases
             <h1>
+                {cases.map(function(d, idx){
+                    return (<li key = {idx}>{d.name}</li>)
+                })}
             </h1>
-                <Link to="/api/motherboards">
+                <Link to="/motherboards">
                     <button className="btn">Motherboards</button>
                 </Link>
             </div>
