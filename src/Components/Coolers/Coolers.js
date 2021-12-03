@@ -1,17 +1,36 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 
-class Coolers extends Component {
-    render(){
-        return(
-            <div className="box1">heres some coolers(pick one)
-                <Link to="/memory">
-                    <button className="btn">coolers now to go to memory</button>
-                </Link>
-            </div>   
-        )
+const Coolers = (props) => {
+    const [ items ,setItems ] = useState([])
+    const [ didMount, setDidMount ] = useState(false)
+
+    
+    useEffect(() => {
+        setDidMount(true)
+        axios.get('/api/coolers')
+        .then((res) => {
+            setItems(res.data)
+        })
+        .catch((err)=>console.log(err))
+        return () => setDidMount(false)
+    },[items])
+    
+    if(!didMount) {
+        return null;
     }
-}
+    
+    
+    return (
+        <div className="box1">
+                <Link to="/memory">
+                    {items.map((e,i)=> {
+                        return <li key={i}><img src={e.item_image} alt="Coolers"/> {e.item_name} {e.item_type} {e.stars} {e.price}</li>
+                    })}
+                </Link>
+        </div>  
+    )
+    }
 
 export default Coolers;
