@@ -1,29 +1,33 @@
-import React, { Component } from 'react';
+import "./styles.css";
+import React, { useState } from "react";
 import { HashRouter, Link } from 'react-router-dom';
+import LoginForm from "./LoginForm";
+import NavBar from "./NavBar";
 import routes from './routes';
 import './App.css';
 
-class App extends Component {
+export default function App() {
 
-  render(){
+  const [isShowLogin, setIsShowLogin] = useState(false)
+  
+  const handleLoginClick = () => {
+    setIsShowLogin((isShowLogin) => !isShowLogin)
+  }
+  
     return(
-    <HashRouter>
+      <HashRouter>
       <div className="App">
         <nav className="nav">
+        <NavBar handleLoginClick={handleLoginClick} />
+        <LoginForm isShowLogin={isShowLogin} />
           <Link to="/" className="Home-Button">
             <button className="home-btn">Home</button>
-          </Link>
-            <Link to="/Login" className="Login-Button">
-            <button style={{margin:"10px"}} className="login-btn" Login-Button>Login</button>
-            <Link to="/Register" className="Register-Button">
-            <button className="register-btn" Login-Button>Register</button>
-          </Link>
           </Link>
         </nav>
         {routes}
       </div>
     </HashRouter>
-    )}
+    );
   }
+    
 
-export default App;
