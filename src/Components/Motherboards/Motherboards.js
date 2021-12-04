@@ -4,22 +4,13 @@ import axios from 'axios';
 
 const Motherboards = (props) => {
     const [ items ,setItems ] = useState([])
-    const [ didMount, setDidMount ] = useState(false)
     
-    
+
     useEffect(() => {
-        setDidMount(true)
         axios.get('/api/motherboards')
-        .then((res) => {
-            setItems(res.data)
-        })
+        .then(res => setItems(res.data))
         .catch((err)=>console.log(err))
-        return () => setDidMount(false)
-    },[items])
-    
-    if(!didMount) {
-        return null;
-    }
+    },[])
     
     
     return (
@@ -27,10 +18,10 @@ const Motherboards = (props) => {
                 <Link to="/cpus">
                     {items.map((e,i)=> {
                         return <li key={i}><img src={e.item_image} alt="motherboards"/> {e.item_name} {e.item_type} {e.stars} {e.price}</li>
-                    })}
+                    })};
                 </Link>
         </div>  
-    )
-    }
+    );
+    };
 
 export default Motherboards;

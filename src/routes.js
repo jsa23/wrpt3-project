@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Home from "./Components/Home/Home";
-import cases from "./Components/Cases/Cases";
+import Home from "./Components/Home/Build";
+import Cases from "./Components/Cases/Cases";
 import Coolers from "./Components/Coolers/Coolers";
 import Cpus from "./Components/Cpus/Cpus";
 import Fans from "./Components/Fans/Fans";
@@ -14,7 +14,7 @@ import Checkout from "./Components/Checkout/Checkout";
 export default (
 <Switch>
     <Route component ={Home} exact path="/" />
-    <Route component ={cases} path="/cases"  />
+    <Route component ={Cases} path="/cases"  />
     <Route component ={Motherboards} path="/motherboards" />
     <Route component ={Cpus} path="/cpus" />
     <Route component ={Gpus} path="/gpus" />

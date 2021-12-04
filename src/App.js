@@ -1,25 +1,33 @@
 import "./styles.css";
-import React, { useState } from "react";
+import React, { Component } from "react";
 import { HashRouter, Link } from 'react-router-dom';
-import LoginForm from "./LoginForm";
-import NavBar from "./NavBar";
+import Header from "./Components/Header/Header";
 import routes from './routes';
 import './App.css';
 
-export default function App() {
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      user: {},
+    };
+    this.updateUser = this.updateUser.bind(this)
+  }
 
-  const [isShowLogin, setIsShowLogin] = useState(false)
   
-  const handleLoginClick = () => {
-    setIsShowLogin((isShowLogin) => !isShowLogin)
+
+
+  updateUser(user) {
+    this.setState=({user,});
   }
   
-    return(
+  render() {
+    const { user } = this.state;
+    return (
       <HashRouter>
       <div className="App">
+        <Header user={user} updateUser={this.updateUser} />
         <nav className="nav">
-        <NavBar handleLoginClick={handleLoginClick} />
-        <LoginForm isShowLogin={isShowLogin} />
           <Link to="/" className="Home-Button">
             <button className="home-btn">Home</button>
           </Link>
@@ -29,5 +37,6 @@ export default function App() {
     </HashRouter>
     );
   }
-    
+}
 
+export default App;

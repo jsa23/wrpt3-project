@@ -4,24 +4,17 @@ import axios from 'axios';
 
 const Fans = (props) => {
     const [ items ,setItems ] = useState([])
-    const [ didMount, setDidMount ] = useState(false)
 
-    
+
     useEffect(() => {
-        setDidMount(true)
         axios.get('/api/fans')
         .then((res) => {
             setItems(res.data)
         })
         .catch((err)=>console.log(err))
-        return () => setDidMount(false)
-    },[items])
+    },[])
     
-    if(!didMount) {
-        return null;
-    }
-    
-    
+
     return (
         <div className="box1">
                 <Link to="/psus">
