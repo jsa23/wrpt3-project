@@ -25,8 +25,8 @@ massive({
 
 app.use(
     session({
-        resave: true,
-        saveUninitialized: false,
+        resave: false,
+        saveUninitialized: true,
         secret: SESSION_SECRET,
     })
 );
@@ -44,7 +44,7 @@ app.post('/api/cases', )
 app.get('/api/motherboards', partsController.motherboardParts);
 app.post('/api/motherboards', )
 
-app.get('/api/cpus', partsController.cpuParts);
+app.get('/api/cpus', partsController.cpuParts); 
 app.post('/api/cpus', )
 
 app.get('/api/gpus', partsController.gpuParts);

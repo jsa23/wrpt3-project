@@ -87,12 +87,12 @@ nav {
   margin: 0 25px;
 }
 
-a {
+/* a {
   text-decoration: none;
   color: rgb(64, 255, 143);
   justify-content:space-around;
   align-items:center
-}
+} */
 
 .link-wrap {
   display: flex;
@@ -123,7 +123,3 @@ a {
     transform: rotate(360deg);
   }
 } */
-
-/* {box-sizing: border-box;} */
-
-

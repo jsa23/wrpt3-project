@@ -1,6 +1,6 @@
 module.exports = {
-    computerParts: async (req, res) => {
-        const parts =  await req.app.get('db').get_computer_parts();
+    computerParts: (req, res) => {
+        const parts =  req.app.get('db').get_computer_parts();
         return res.status(200).send(parts);
     },
 

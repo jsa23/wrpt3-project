@@ -22,6 +22,7 @@ class Cases extends Component {
 
     render(){
         const { cases } = this.state;
+        
         return(
             <div className="box1">
                 <Link to="/motherboards">
@@ -35,4 +36,3 @@ class Cases extends Component {
 }
 
 export default Cases;
-
