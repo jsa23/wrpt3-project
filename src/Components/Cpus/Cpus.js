@@ -12,14 +12,15 @@ const Cpus = (props) => {
             setItems(res.data)
         })
         .catch((err)=>console.log(err))
-    },[items])
+    },[])
 
     
     return (
         <div className="box1">
                 <Link to="/gpus">
                     {items.map((e,i)=> {
-                        return <li key={i}><img src={e.item_image} alt="Cpus"/> {e.item_name} {e.item_type} {e.stars} {e.price}</li>
+                        return <li key={i}><img src={e.item_image} alt="Cpus"/> 
+                        {e.item_name} {e.item_type} {e.stars} {e.price}</li>
                     })}
                 </Link>
         </div>  

@@ -15,9 +15,9 @@ class App extends Component {
           </Link>
             <Link to="/Login" className="Login-Button">
             <button style={{margin:"10px"}} className="login-btn">Login</button>
+          </Link>
             <Link to="/Register" className="Register-Button">
             <button className="register-btn">Register</button>
-          </Link>
           </Link>
         </nav>
         {routes}

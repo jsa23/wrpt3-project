@@ -12,7 +12,7 @@ const Memory = (props) => {
             setItems(res.data)
         })
         .catch((err)=>console.log(err))
-    },[items])
+    },[])
 
     
     return (
