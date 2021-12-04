@@ -24,12 +24,15 @@ class Cases extends Component {
         const { cases } = this.state;
         
         return(
+            <div className="wrapper_wrapper-content">
+                <tr></tr>
             <div className="box1">
                 <Link to="/motherboards">
                     {cases.map((e,i)=> {
-                        return <li key={i}><img src ={e.item_image} alt="Cases"/> {e.item_name} {e.item_type} {e.stars} {e.price} </li>
+                        return <div className="itemsReturned" key={i}><img src ={e.item_image} alt="Cases"/> {e.item_name} {e.item_type} {e.stars} {e.price} </div>
                     })}
                 </Link>
+            </div>
             </div>
         )
     }

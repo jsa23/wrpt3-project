@@ -1,0 +1,23 @@
+.welcomeMessage {
+    color: whitesmoke;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  
+  .welcomeMessage ::first-letter {
+    text-transform: capitalize;
+  }
+
+  .Header input,
+.Header button {
+  margin: 0px 0px 0px 20px;
+  color: blue;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
