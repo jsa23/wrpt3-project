@@ -1,5 +1,23 @@
 .box1 {
     color: white;
-
+    width: 70px;
+    height: 70px;
+    margin: 30px;
+    padding: 3px;
+    display: inline;
+    align-content:center;
 }
 
+img {
+    width: 180px;
+    height: 180px;
+    margin: 5px;
+    padding: 5px;
+}
+
+::marker {
+    justify-content: center;
+    align-items:center;
+    color: yellow;
+    padding-bottom:50%;
+}

@@ -1,17 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 
-class Memory extends Component {
-    render(){
-        return(
-            <div className="box1">here are some fans (pick alot)
+const Memory = (props) => {
+    const [ items ,setItems ] = useState([])
+
+    
+    useEffect(() => {
+        axios.get('/api/memory')
+        .then((res) => {
+            setItems(res.data)
+        })
+        .catch((err)=>console.log(err))
+    },[items])
+
+    
+    return (
+        <div className="box1">
                 <Link to="/fans">
-                    <button className="btn">pick one to fans</button>
+                    {items.map((e,i)=> {
+                        return <li key={i}><img src={e.item_image} alt="Memory"/> {e.item_name} {e.item_type} {e.stars} {e.price}</li>
+                    })}
                 </Link>
-            </div>   
-        )
+        </div>  
+    )
     }
-}
 
 export default Memory;

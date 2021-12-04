@@ -1,17 +1,27 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 
-class Gpus extends Component {
-    render(){
-        return(
-            <div className="box1">getting closer
+const Gpus = (props) => {
+    const [ items ,setItems ] = useState([])
+
+
+    useEffect(() => {
+        axios.get('/api/gpus')
+        .then(res => setItems(res.data))
+        .catch((err)=>console.log(err))
+    },[])
+    
+
+    return (
+        <div className="box1">
                 <Link to="/coolers">
-                    <button className="btn">pick one gpu to get to coolers</button>
+                    {items.map((e,i)=> {
+                        return <li key={i}><img src={e.item_image} alt="gpus"/> {e.item_name} {e.item_type} {e.stars} {e.price}</li>
+                    })};
                 </Link>
-            </div>   
-        )
-    }
-}
+        </div>  
+    );
+    };
 
 export default Gpus;

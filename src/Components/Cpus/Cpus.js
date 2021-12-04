@@ -1,25 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 
-class Cpus extends Component {
-    constructor() {
-        super();
+const Cpus = (props) => {
+    const [ items ,setItems ] = useState([])
 
-        this.state= {
-            cases: []
-        }
-    }
+    
+    useEffect(() => {
+        axios.get('/api/cpus')
+        .then((res) => {
+            setItems(res.data)
+        })
+        .catch((err)=>console.log(err))
+    },[items])
 
-    render(){
-        return(
-            <div className="box1">pick this one to go to gpus
+    
+    return (
+        <div className="box1">
                 <Link to="/gpus">
-                    <button className="btn">Gpus</button>
+                    {items.map((e,i)=> {
+                        return <li key={i}><img src={e.item_image} alt="Cpus"/> {e.item_name} {e.item_type} {e.stars} {e.price}</li>
+                    })}
                 </Link>
-            </div>   
-        )
+        </div>  
+    )
     }
-}
 
 export default Cpus;

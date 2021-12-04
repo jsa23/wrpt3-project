@@ -1,17 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 
-class Fans extends Component {
-    render(){
-        return(
-            <div className="box1">here are fans to cool your machine down (pick one)
+const Fans = (props) => {
+    const [ items ,setItems ] = useState([])
+
+
+    useEffect(() => {
+        axios.get('/api/fans')
+        .then((res) => {
+            setItems(res.data)
+        })
+        .catch((err)=>console.log(err))
+    },[])
+    
+
+    return (
+        <div className="box1">
                 <Link to="/psus">
-                    <button className="btn">go to psus</button>
+                    {items.map((e,i)=> {
+                        return <li key={i}><img src={e.item_image} alt="Fans"/> {e.item_name} {e.item_type} {e.stars} {e.price}</li>
+                    })}
                 </Link>
-            </div>   
-        )
+        </div>  
+    )
     }
-}
 
 export default Fans;

@@ -52,7 +52,7 @@ h1, h2, h3, p {
 }
 
 .btn:focus {
-  outline: none;
+  outline:#61dafb;
 }
 
 .box {
@@ -90,6 +90,8 @@ nav {
 a {
   text-decoration: none;
   color: rgb(64, 255, 143);
+  justify-content:space-around;
+  align-items:center
 }
 
 .link-wrap {
@@ -111,9 +113,6 @@ a {
   margin: 0 auto;
 }
 
-.try-button {
-  color:rgb(64, 255, 143);
-}
 
 
 /* @keyframes App-logo-spin {
@@ -124,3 +123,7 @@ a {
     transform: rotate(360deg);
   }
 } */
+
+/* {box-sizing: border-box;} */
+
+

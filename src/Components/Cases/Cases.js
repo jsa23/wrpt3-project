@@ -16,20 +16,18 @@ class Cases extends Component {
         axios.get(`/api/cases`)
         .then(res => {this.setState({ cases: res.data })
         })
+        .catch((err)=> console.log(err))
     }
 
 
     render(){
         const { cases } = this.state;
         return(
-            <div className="box1">Heres some cases
-            <h1>
-                {cases.map(function(d, idx){
-                    return (<li key = {idx}>{d.name}</li>)
-                })}
-            </h1>
+            <div className="box1">
                 <Link to="/motherboards">
-                    <button className="btn">Motherboards</button>
+                    {cases.map((e,i)=> {
+                        return <li key={i}><img src ={e.item_image} alt="Cases"/> {e.item_name} {e.item_type} {e.stars} {e.price} </li>
+                    })}
                 </Link>
             </div>
         )
@@ -37,3 +35,4 @@ class Cases extends Component {
 }
 
 export default Cases;
+

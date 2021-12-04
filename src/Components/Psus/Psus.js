@@ -1,17 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 
-class Psus extends Component {
-    render(){
-        return(
-            <div className="box1">some Psus to power the whole thing you've just built! 
+const Psus = (props) => {
+    const [ items ,setItems ] = useState([])
+    
+    
+    useEffect(() => {
+        axios.get('/api/psus')
+        .then((res) => {
+            setItems(res.data)
+        })
+        .catch((err)=>console.log(err))
+    },[])
+    
+    return (
+        <div className="box1">
                 <Link to="/checkout">
-                    <button className="btn">finish!! </button>
+                    {items.map((e,i)=> {
+                        return <li key={i}><img src={e.item_image} alt="psus"/> {e.item_name} {e.item_type} {e.stars} {e.price}</li>
+                    })}
                 </Link>
-            </div>   
-        )
+        </div>  
+    )
     }
-}
 
 export default Psus;
