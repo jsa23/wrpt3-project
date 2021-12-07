@@ -1,0 +1,29 @@
+@media (max-width: 750px) {
+    nav {
+        background-color: orange;
+    }
+
+    ul {
+        display: none;
+    }
+
+    menu {
+        width: 350px;
+        height: 100px;
+        background-color: green;
+    }
+
+    .menu-open {
+        height: 100vh;
+        width: 250px;
+        background-color: grey;
+    }
+
+    
+    @media(min-width: 300px) {
+        
+        .hamburger-menu {
+            display: inline;
+        }
+    }
+}

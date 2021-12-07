@@ -1,40 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { HashRouter, Link } from 'react-router-dom';
-import Header from './Header/Header'
+// import Header from './Header/Header'
 import routes from './routes';
 import './App.css';
+import ProductList from './Components/ProductList';
+import Cart from './cart/Cart';
+import Navbar from './Components/NavBar';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: {},
-    };
-    this.updateUser = this.updateUser.bind(this)
-  }
+function App(props) {
 
-  updateUser(user) {
-    this.setState({
-      user,
-    })
-  }
-
-  render(){
-    const { user } = this.state;
     return(
     <HashRouter>
       <div className="App">
-        <nav className="nav">
-          <Link to="/" className="Home-Button">
-            <button className="home-btn">Home</button>
-          </Link>
-          <Header user={user} updateUser={this.updateUser} />
-        </nav>
-        {routes}
+        <Navbar />
+        <Link exact path="/" component={ProductList} />
+        <Link path="/my-cart" component={Cart} />
       </div>
+      {routes}
     </HashRouter>
     )}
-  }
+  
 
 export default App;
 
