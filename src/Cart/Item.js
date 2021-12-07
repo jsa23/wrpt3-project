@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateCartQuantity, removeFromCart } from '../Components/store/actions/cartActions';
+
 class Item extends Component {
     constructor(props) {
         super(props);

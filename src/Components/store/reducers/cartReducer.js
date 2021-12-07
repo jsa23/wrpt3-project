@@ -1,6 +1,19 @@
+import axios from "axios";
+
 const initialState = {
     cart: []
   };
+
+  const ADD_TO_CART="ADD_TO_CART";
+
+ export const addToCart=() => {
+     return {
+         type: ADD_TO_CART,
+         payload: axios.post('/api/cases/:id')
+     }
+ }
+
+
   const cartReducer = (state = initialState, action) => {
       let cart = state.cart;
       switch(action.type) {

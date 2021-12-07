@@ -30,9 +30,9 @@ class App extends Component {
       <div className="App">
         <Header user={user} updateUser={this.updateUser} />
         <Link exact path="/products" component={ProductList} />
-        <Link path="/my-cart" component={Cart} />
+        <Link path="/api/cases" component={Cart} />
         <Navbar />
-      {routes}
+      {routes} 
       </div>
       </HashRouter>
     )}

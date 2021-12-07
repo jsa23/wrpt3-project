@@ -1,6 +1,6 @@
 module.exports = {
-    computerParts: (req, res) => {
-        const parts =  req.app.get('db').get_computer_parts();
+    computerParts: async(req, res) => {
+        const parts =  await req.app.get('db').get_computer_parts();
         return res.status(200).send(parts);
     },
 
@@ -43,4 +43,9 @@ module.exports = {
         const psus = await req.app.get('db').get_psu_parts();
         return res.status(200).send(psus);
     },
+
+    addCase: async(req,res) => {
+        const addcase = await req.app.post('db').add_transaction();
+        return res.status(200).send(addcase);
+    }
 }
