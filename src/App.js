@@ -1,26 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { HashRouter, Link } from 'react-router-dom';
-// import Header from './Header/Header'
+import Header from './Header/Header'
 import routes from './routes';
 import './App.css';
 import ProductList from './Components/ProductList';
-import Cart from './cart/Cart';
+import Cart from './Cart/Cart';
 import Navbar from './Components/NavBar';
 
-function App(props) {
+class App extends Component {
+  constructor(){
+    super();
 
+    this.state = {
+      user: {}
+    };
+    this.updateUser = this.updateUser.bind(this)
+  }
+
+  updateUser(user) {
+    this.setState({
+      user,
+    })
+  }
+
+  render(){
+    const { user } = this.state;
     return(
-    <HashRouter>
+      <HashRouter>
       <div className="App">
-        <Navbar />
-        <Link exact path="/" component={ProductList} />
+        <Header user={user} updateUser={this.updateUser} />
+        <Link exact path="/products" component={ProductList} />
         <Link path="/my-cart" component={Cart} />
-      </div>
+        <Navbar />
       {routes}
-    </HashRouter>
+      </div>
+      </HashRouter>
     )}
-  
-
+  }
 export default App;
 
           //   <Link to="/Login" className="Login-Button">
@@ -29,3 +45,6 @@ export default App;
           //   <Link to="/Register" className="Register-Button">
           //   <button className="register-btn">Register</button>
           // </Link>
+
+
+
