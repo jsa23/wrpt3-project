@@ -40,7 +40,6 @@ app.post('/api/register', authController.register);
 app.post('/api/login', authController.login);
 
 app.get('/api/cases', partsController.caseParts);
-app.post('/api/cases/:id', partsController.addCase);
 
 app.get('/api/motherboards', partsController.motherboardParts);
 app.post('/api/motherboards', )

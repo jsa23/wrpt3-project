@@ -28,26 +28,26 @@ class Item extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.updateCartQuantity(this.props.item.product.id, this.state.quantity);
+        this.props.updateCartQuantity(this.props.item.item_number, this.state.quantity);
         this.setState({
             btnVisible: false
         });
     }
     handleRemove = (e) => {
-        this.props.removeFromCart(this.props.item.product.id);
+        // this.props.removeFromCart(this.props.item.product.id);
     }
   render() {
       const { item } = this.props;
       return (
           <div className="row">
-              <div className="col-xs-2"><img className="img-responsive" src={item.product.image} alt="thingy" />
+              <div className="col-xs-2"><img className="img-responsive" src={item.item_image} alt="thingy" />
               </div>
               <div className="col-xs-4">
-                  <h4 className="product-name"><strong>{item.product.title}</strong></h4>
+                  <h4 className="product-name"><strong>{item.item_name}</strong></h4>
               </div>
               <div className="col-xs-6">
                   <div className="col-xs-3 text-right">
-                      <h6><strong>{ item.product.price } <span className="text-muted">x</span></strong></h6>
+                      <h6><strong>{ item.price } <span className="text-muted">x</span></strong></h6>
                   </div>
                   <form onSubmit={this.handleSubmit}>
                       <div className="col-xs-4">

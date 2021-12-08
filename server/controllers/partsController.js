@@ -44,8 +44,7 @@ module.exports = {
         return res.status(200).send(psus);
     },
 
-    addCase: async(req,res) => {
-        const addcase = await req.app.post('db').add_transaction();
-        return res.status(200).send(addcase);
+    // addCase: async(req,res) => {
+    //     const addcase = await req.app.post('db').add_transaction();
+    //     return res.status(200).send(addcase);
     }
-}

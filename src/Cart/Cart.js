@@ -5,14 +5,15 @@ class Cart extends Component
 {
     render() {
         let total = 0;
-        this.props.cart.map(item => total += item.product.price * item.quantity);
+        // this.props.cart.map(item => total += item.product.price * item.quantity);
         const cart = this.props.cart.length > 0?(
             <div>
                 <div className="panel-body">
                     {
                         this.props.cart.map(item => {
+                            console.log(item)
                             return (
-                                <div key={item.product.id}>
+                                <div key={item.number}>
                                     <Item item={item} />
                                     <hr />
                                 </div>
@@ -56,6 +57,7 @@ class Cart extends Component
     }
 }
 const mapStateToProps = (state) => {
+    console.log(state)
   return {
       cart: state.cart.cart
   }

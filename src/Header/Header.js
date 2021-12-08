@@ -58,7 +58,6 @@ class Header extends Component {
             const { user } = this.props;
             return (
                 <div className="Header">
-                    <div className="title">Testing</div>
                     {user.username ? (
                         <div className = "welcomeMessage">
                             <h4>{user.username}, Lets build your computer!</h4>

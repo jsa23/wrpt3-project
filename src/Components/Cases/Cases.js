@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addToCart } from '../store/reducers/cartReducer';
 import axios from 'axios';
 import './Cases.css'
 
@@ -29,13 +31,17 @@ class Cases extends Component {
             <div className="box1">
                 <Link to="/motherboards">
                     {cases.map((e,i)=> {
-                        return <div className="itemsReturned" key={i}><img src ={e.item_image} alt="Cases"/> {e.item_name} {e.item_type} {e.stars} {e.price} </div>
+                        return <div onClick={() => {
+                            this.props.addToCart(e)
+                        }} className="itemsReturned" key={i}><img src ={e.item_image} alt="Cases"/> 
+                        {e.item_name} {e.item_type} {e.stars} {e.price} </div>
                     })}
                 </Link>
             </div>
             </div>
         )
     }
+
 }
 
-export default Cases;
+export default connect(null,{addToCart})(Cases);

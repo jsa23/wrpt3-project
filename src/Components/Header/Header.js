@@ -62,7 +62,6 @@ export default class Header extends Component {
     const { user } = this.props;
     return (
       <div className="Header">
-        <div className="title">Build a Computer</div>
         {user.username ? (
           <div className="welcomeMessage">
             <h4>{user.username}, Welcome! Lets get started!</h4>

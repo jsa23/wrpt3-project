@@ -6,37 +6,35 @@ const initialState = {
 
   const ADD_TO_CART="ADD_TO_CART";
 
- export const addToCart=() => {
+ export const addToCart=(item) => {
      return {
          type: ADD_TO_CART,
-         payload: axios.post('/api/cases/:id')
+         payload: item,
      }
  }
 
 
   const cartReducer = (state = initialState, action) => {
-      let cart = state.cart;
       switch(action.type) {
           case 'ADD_TO_CART':
-              cart.push(action.payload);
               return {
                   ...state,
-                  cart: cart
+                  cart: [...state.cart, action.payload]
               };
-          case 'UPDATE_CART_QUANTITY':
-              let item = cart.find(item => item.product.id === action.payload.productId);
-              let newCart = cart.filter(item => item.product.id !== action.payload.productId);
-              item.quantity = action.payload.quantity;
-              newCart.push(item);
-              return {
-                  ...state,
-                  cart: newCart
-              };
-          case 'REMOVE_FROM_CART':
-              return {
-                  ...state,
-                  cart: cart.filter(item => item.product.id !== action.payload.productId)
-              };
+        //   case 'UPDATE_CART_QUANTITY':
+        //       let item = cart.find(item => item.product.id === action.payload.productId);
+        //       let newCart = cart.filter(item => item.product.id !== action.payload.productId);
+        //       item.quantity = action.payload.quantity;
+        //       newCart.push(item);
+        //       return {
+        //           ...state,
+        //           cart: newCart
+        //       };
+        //   case 'REMOVE_FROM_CART':
+        //       return {
+        //           ...state,
+        //           cart: cart.filter(item => item.product.id !== action.payload.productId)
+        //       };
           default:
               return state;
       }
