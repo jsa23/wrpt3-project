@@ -34,7 +34,7 @@ class Item extends Component {
         });
     }
     handleRemove = (e) => {
-        // this.props.removeFromCart(this.props.item.product.id);
+        this.props.removeFromCart(this.props.item.id);
     }
   render() {
       const { item } = this.props;
@@ -49,25 +49,11 @@ class Item extends Component {
                   <div className="col-xs-3 text-right">
                       <h2><strong>{ item.price } <span className="text-muted"></span></strong></h2>
                   </div>
-                  <form onSubmit={this.handleSubmit}>
-                      <div className="col-xs-4">
-                          <input type="number" className="form-control input-sm" onChange={this.handleChange} value={this.state.quantity}/>
-                      </div>
-                      {
-                          this.state.btnVisible?(
-                              <div className="col-xs-2">
-                                  <button type="submit" className="btn btn-info">Update</button>
-                              </div>
-                          ) : null
-                      }
-                      <div className="col-xs-2">
-                          <button type="button" onClick={this.handleRemove} className="btn btn-link btn-xs">
-                              <span className="glyphicon glyphicon-trash"> </span>
-                          </button>
-                      </div>
-                  </form>
-              </div>
-          </div>
+                <div className="col-xs-2">
+                    <button type="submit" onClick={this.handleRemove} className="btn btn-info">Delete</button>
+                </div>
+            </div>
+        </div>
       )
   }
 }

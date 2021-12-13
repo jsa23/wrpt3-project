@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addToCart } from '../store/reducers/cartReducer';
 import axios from 'axios';
-import './Cases.css'
+
 
 class Cases extends Component {
     constructor(props) {
@@ -24,6 +24,7 @@ class Cases extends Component {
 
     render(){
         const { cases } = this.state;
+
         
         return(
             <div className="wrapper_wrapper-content">

@@ -1,11 +1,12 @@
 .Header {
     color:aqua;
-    height: 8vh;
-    position: absolute;
+    height: 100px;
+    width: 100%;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 3;
+    z-index: 8;
     background-color: rgb(32, 30, 30);
     margin: 0;
     border: 0;
@@ -22,10 +23,10 @@ display: block;
 }
 
 .App {
-    background-color: url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYWwlMjB3ZWJzaXRlfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+    /* background-image: url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYWwlMjB3ZWJzaXRlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"); */
+    background-repeat:no-repeat;
     width: 100%;
-    height: 200px;
-    left: 0;
+    height: 100%;
 }
 
 .loginContainer {
@@ -43,10 +44,17 @@ display: block;
     }
 
     @media(max-width: 550px) {
-        input {
-            display: none;
+        .loginContainer {
+            display: inline-table;
+        }
+        .navbar-brand {
+            display: relative;
         }
     }
+
+    @media(max-width: 678px) {
+        }
+    
 
     .title {
       color: #22c244;
@@ -74,8 +82,13 @@ display: block;
       text-transform: capitalize;
     }
   
-    h4 {
+    h4, h5 {
         margin:20px;
+        font-size: 30px;
+    }
+
+    strong {
+        font-size: 30px;
     }
 
     li {
@@ -83,9 +96,59 @@ display: block;
     }
 
     h5, p {
-        font-size: 20px;
+        font-size: 30px;
+    }
+    .navbar-brand {
+        top: 90px;
+        left: 40px;
+        position: relative;
+        z-index: 15;
+}
+
+    .container {
+        top: 30px;
+        left: 90px;
     }
 
-    .wrapper_wrapper-content {
-        display: flex;
+    .panel.panel-info {
+        position: relative;
+        top: 20px;
     }
+
+    .build-computer-button-position {
+        position: absolute;
+        top: 300px;
+        left: 100px;
+    }
+
+    .build-computer-btn {
+        height: 50px;
+        width: 80px;
+    }
+
+    .col-xs-6 {
+        position: relative;
+    }
+
+    .row {
+        display:flex;
+        position: relative;
+        width: 900px;
+        left: 90px;
+        justify-content: space-between;
+    }
+
+    .col-xs-12 {
+        align-items: center;
+        position: relative;
+    }
+
+    .col-xs-4 {
+        font-family:'Times New Roman', Times, serif;
+    }
+    
+    .img-responsive {
+        height: 200px;
+        width: 200px;
+    }
+    

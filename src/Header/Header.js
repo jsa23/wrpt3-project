@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
     constructor() {
@@ -58,6 +59,9 @@ class Header extends Component {
             const { user } = this.props;
             return (
                 <div className="Header">
+                <Link className = "navbar-brand" to="/">
+                    <button>Home</button>
+                </Link>
                     {user.username ? (
                         <div className = "welcomeMessage">
                             <h4>{user.username}, Lets build your computer!</h4>

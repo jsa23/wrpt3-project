@@ -12,16 +12,12 @@ class ProductList extends Component
 
     render(){
         return(
-            <div className = "container">
-                <h2>Product List</h2>
-                <br />
                 <div className = "row">
                     {
                         this.props.products.map(product => <Product product={product}
-                        addToCart={this.addToCart} inCart={this.props.cart.length>0 && this.props.cart.filter(e => e.product.id === product.id).length > 0 } key={product.id} />)
-                    }
+                            addToCart={this.addToCart} inCart={this.props.cart.length>0 && this.props.cart.filter(e => e.product.id === product.id).length > 0 } key={product.id} />)
+                        }
                 </div>
-            </div>
         )
     }
 }

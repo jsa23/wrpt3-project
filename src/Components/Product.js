@@ -33,7 +33,7 @@ class Product extends Component
                             this.state.inCart?(
                                 <span className="btn btn-success">Added to cart</span>
                             ) : (
-                                <a href="http://google.com" className = "btn btn-sm btn-primary float-right"> Add to cart</a>
+                                <div href="http://google.com" className = "btn btn-sm btn-primary float-right"> Add to cart</div>
                             )
                         }
                         <div className = "price-wrap-h5">
