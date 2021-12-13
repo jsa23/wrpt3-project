@@ -10,6 +10,7 @@ import Memory from "./Components/Memory/Memory";
 import Motherboards from "./Components/Motherboards/Motherboards";
 import Psus from "./Components/Psus/Psus";
 import Checkout from "./Components/Checkout/Checkout";
+import payment from './Components/Checkout/pages/index';
 
 export default (
 <Switch>
@@ -23,5 +24,6 @@ export default (
     <Route component ={Memory} path="/memory" />
     <Route component ={Psus} path="/psus"  />
     <Route component ={Checkout} path="/checkout" />
+    <Route component = {payment} path="/payment" />
 </Switch>
 );

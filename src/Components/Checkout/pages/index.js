@@ -1,26 +1,24 @@
-import React, { Component } from "react";
-import { Link } from 'react-router-dom'
-;
-class Checkout extends Component {
-    constructor(props){
-        super(props)
+import React from 'react';
+import { loadStripe } from '@stripe/stripe-js';
 
-        this.state = []
-    }
+const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
+export default function PreviewPage(){
+    React.useEffect(() => {
+        const query = new URLSearchParams(window.location.search);
+        if (query.get('success')) {
+            console.log('Order placed! You will recieve an email confirmation.');
+        } 
 
-    render(){
-        const items = this.state;
-        return(
-        <div className="box1">
-                    {items.map((e,i)=> {
-                        return <div onClick = {() => {
-                        }} className = "itemsReturned" key={i}><img src={e.item_image} alt="Memory"/>
-                        {e.item_name} {e.item_type} {e.stars} {e.price}</div>
-                    })}
-                    <Link to='/payment'>
-                    <button className = "pay-button">Pay now!</button>
-                    </Link>
-                    <section>
+        if (query.get('canceled')) {
+            console.log('Order canceled -- continue to shop around and checkout when you`re ready.')
+        }
+    }, []);
+
+    return (
+        <form action="/checkout_sessions" method="POST">
+            <section>
                 <button type="submit" role="link">
                     Checkout
                 </button>
@@ -38,7 +36,7 @@ class Checkout extends Component {
                 }
                 button {
                     height: 36px;
-                    background: #22c244;
+                    background: #55533;
                     border-radius: 4px;
                     color: white;
                     border: 0;
@@ -49,14 +47,9 @@ class Checkout extends Component {
                 }
                 button: hover {
                     opacity: 0.8;
-                    color: blue;
-                    background: #482155;
                 }
                 `}
             </style>
-        </div>  
+        </form>
     )
 }
-}
-
-export default Checkout;

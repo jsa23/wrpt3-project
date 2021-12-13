@@ -113,16 +113,18 @@ display: block;
     .panel.panel-info {
         position: relative;
         top: 20px;
+        left: 40px;
     }
 
     .build-computer-button-position {
         position: absolute;
-        top: 300px;
+        top: 390px;
         left: 100px;
+        width: 20px;
     }
 
     .build-computer-btn {
-        height: 50px;
+        height: 80px;
         width: 80px;
     }
 

@@ -56,7 +56,10 @@ app.get('/api/fans', partsController.fanParts);
 app.get('/api/psus', partsController.psuParts);
 
 app.get('/api/checkout', )
+app.post('api/payment', )
 app.put('/api/checkout', )
 app.delete('/api/checkout', )
+
+app.get('/api/payment', )
 
 app.listen(4500, ()=> console.log(`listening on 4500`))
