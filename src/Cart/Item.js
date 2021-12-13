@@ -47,7 +47,7 @@ class Item extends Component {
               </div>
               <div className="col-xs-6">
                   <div className="col-xs-3 text-right">
-                      <h6><strong>{ item.price } <span className="text-muted">x</span></strong></h6>
+                      <h2><strong>{ item.price } <span className="text-muted"></span></strong></h2>
                   </div>
                   <form onSubmit={this.handleSubmit}>
                       <div className="col-xs-4">

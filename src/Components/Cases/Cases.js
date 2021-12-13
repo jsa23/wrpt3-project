@@ -41,7 +41,6 @@ class Cases extends Component {
             </div>
         )
     }
-
 }
 
 export default connect(null,{addToCart})(Cases);

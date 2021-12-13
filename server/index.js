@@ -42,25 +42,18 @@ app.post('/api/login', authController.login);
 app.get('/api/cases', partsController.caseParts);
 
 app.get('/api/motherboards', partsController.motherboardParts);
-app.post('/api/motherboards', )
 
 app.get('/api/cpus', partsController.cpuParts); 
-app.post('/api/cpus', )
 
 app.get('/api/gpus', partsController.gpuParts);
-app.post('/api/gpus', )
 
 app.get('/api/coolers', partsController.coolerParts);
-app.post('/api/coolers', )
 
 app.get('/api/memory', partsController.memoryParts);
-app.post('/api/memory', )
 
 app.get('/api/fans', partsController.fanParts);
-app.post('/api/fans', )
 
 app.get('/api/psus', partsController.psuParts);
-app.post('/api/psus', )
 
 app.get('/api/checkout', )
 app.put('/api/checkout', )

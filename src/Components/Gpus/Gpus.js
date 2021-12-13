@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addToCart } from '../store/reducers/cartReducer'
 import axios from 'axios';
 
 const Gpus = (props) => {
@@ -17,11 +19,14 @@ const Gpus = (props) => {
         <div className="box1">
                 <Link to="/coolers">
                     {items.map((e,i)=> {
-                        return <li key={i}><img src={e.item_image} alt="gpus"/> {e.item_name} {e.item_type} {e.stars} {e.price}</li>
+                        return <div onClick={() => {
+                            props.addToCart(e)
+                        }} className = "itemsReturned" key={i}><img src={e.item_image} alt="gpus"/>
+                        {e.item_name} {e.item_type} {e.stars} {e.price}</div>
                     })};
                 </Link>
         </div>  
     );
     };
 
-export default Gpus;
+export default connect(null, {addToCart})(Gpus);

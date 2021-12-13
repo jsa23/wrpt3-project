@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addToCart } from '../store/reducers/cartReducer';
 import axios from 'axios';
 
 const Memory = (props) => {
@@ -8,9 +10,7 @@ const Memory = (props) => {
     
     useEffect(() => {
         axios.get('/api/memory')
-        .then((res) => {
-            setItems(res.data)
-        })
+        .then((res) => setItems(res.data))
         .catch((err)=>console.log(err))
     },[])
 
@@ -19,11 +19,14 @@ const Memory = (props) => {
         <div className="box1">
                 <Link to="/fans">
                     {items.map((e,i)=> {
-                        return <li key={i}><img src={e.item_image} alt="Memory"/> {e.item_name} {e.item_type} {e.stars} {e.price}</li>
+                        return <div onClick = {() => {
+                            props.addToCart(e)
+                        }} className = "itemsReturned" key={i}><img src={e.item_image} alt="Memory"/>
+                        {e.item_name} {e.item_type} {e.stars} {e.price}</div>
                     })}
                 </Link>
         </div>  
     )
     }
 
-export default Memory;
+export default connect(null, {addToCart})(Memory);
