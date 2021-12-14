@@ -7,6 +7,22 @@ export default class Build extends Component {
             <div className="build-computer-button">
                 <Link to="/cases">
                     <button className='btn'>Build Your Computer</button>
+                    <style jsx>
+                        {`
+                        .button {
+                            color: yellow;
+                            height: 30px;
+                            border-radius: 8px;
+                            justify-content: space-between;
+                            background: green;
+                        }
+                        button: hover {
+                            opacity: 0.9;
+                            color: purple;
+                            background: yellow;
+                        }
+                        `}
+                    </style>
                 </Link>
             </div>
     );

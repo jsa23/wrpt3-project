@@ -6,15 +6,17 @@ import './App.css';
 import ProductList from './Components/ProductList';
 import Cart from './Cart/Cart';
 import Navbar from './Components/NavBar';
+import StripeContainer from './Components/Checkout/pages/StripeContainer';
 
 class App extends Component {
   constructor(){
     super();
 
     this.state = {
-      user: {}
+      user: {},
+      showItem: (false)
     };
-    this.updateUser = this.updateUser.bind(this)
+    this.updateUser = this.updateUser.bind(this);
   }
 
   updateUser(user) {
@@ -23,14 +25,25 @@ class App extends Component {
     })
   }
 
+  updateItem(showItem) {
+    this.setState({
+      showItem,
+    })
+  }
+  
+
   render(){
-    const { user } = this.state;
+    const { user  } = this.state;
+    const { showItem } = this.state;
+    
     return(
       <HashRouter>
       <div className="App">
         <Header user={user} updateUser={this.updateUser} />
         <Link exact path="/products" component={ProductList} />
         <Link path="/my-cart" component={Cart} />
+        {showItem ? <StripeContainer/> : <> <h3> Show me the Money!! </h3> 
+        <button onClick={() => this.updateItem(true)}> Click me!! </button></>}
         <Navbar />
       {routes}
       </div>
@@ -38,13 +51,6 @@ class App extends Component {
     )}
   }
 export default App;
-
-          //   <Link to="/Login" className="Login-Button">
-          //   <button style={{margin:"10px"}} className="login-btn">Login</button>
-          // </Link>
-          //   <Link to="/Register" className="Register-Button">
-          //   <button className="register-btn">Register</button>
-          // </Link>
 
 
 

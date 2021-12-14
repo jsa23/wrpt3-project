@@ -38,7 +38,7 @@ class Checkout extends Component {
                 }
                 button {
                     height: 36px;
-                    background: #22c244;
+                    background: #55533;
                     border-radius: 4px;
                     color: white;
                     border: 0;
@@ -49,8 +49,6 @@ class Checkout extends Component {
                 }
                 button: hover {
                     opacity: 0.8;
-                    color: blue;
-                    background: #482155;
                 }
                 `}
             </style>

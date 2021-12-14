@@ -2,9 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 const session = require('express-session');
-// const cors = require('cors')
 const authController = require('./controllers/authController');
 const partsController = require('./controllers/partsController');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST);
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 
 const { CONNECTION_STRING, SESSION_SECRET } = process.env;
@@ -12,6 +14,11 @@ const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 const app = express();
 
 // app.use(cors())
+
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
+
+app.use(cors())
 
 app.use(express.json());
 
@@ -62,4 +69,28 @@ app.delete('/api/checkout', )
 
 app.get('/api/payment', )
 
-app.listen(4500, ()=> console.log(`listening on 4500`))
+app.post('/payment', cors(), async (req, res) => {
+let { amount, id} = req.body
+try {
+    const payment = await stripe.paymentIntents.create({
+        amount,
+        currency: "USD",
+        payment_method: id,
+        confirm: true
+    })
+    console.log("Payment", payment)
+    res.json({
+        message: "Payment successful",
+        success: true
+    })
+    } catch (error) {
+        console.log("Error", error)
+        res.json({
+            message: "Payment failed",
+            success: false
+        })
+    }
+})
+
+app.listen(4500, ()=> 
+console.log(`listening on 4500`))
