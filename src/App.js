@@ -13,8 +13,8 @@ class App extends Component {
     super();
 
     this.state = {
-      user: {},
-      showItem: (false)
+      user:{},
+      showItem:(false),
     };
     this.updateUser = this.updateUser.bind(this);
   }
@@ -23,7 +23,7 @@ class App extends Component {
     this.setState({
       user,
     })
-  }
+  } 
 
   updateItem(showItem) {
     this.setState({
@@ -42,8 +42,8 @@ class App extends Component {
         <Header user={user} updateUser={this.updateUser} />
         <Link exact path="/products" component={ProductList} />
         <Link path="/my-cart" component={Cart} />
-        {showItem ? <StripeContainer/> : <> <h3> Show me the Money!! </h3> 
-        <button onClick={() => this.updateItem(true)}> Click me!! </button></>}
+        {showItem ? <StripeContainer/> :<> 
+        <button onClick={() => this.updateItem(true)}> Pay Now </button></>}
         <Navbar />
       {routes}
       </div>

@@ -35,7 +35,9 @@ app.use(
         resave: false,
         saveUninitialized: true,
         secret: SESSION_SECRET,
-        cookie: { maxAge: 60000 },
+        cookie: {
+             maxAge: 1000 * 60 * 60 
+            }
     })
 );
 
@@ -62,12 +64,8 @@ app.get('/api/fans', partsController.fanParts);
 
 app.get('/api/psus', partsController.psuParts);
 
-app.get('/api/checkout', )
-app.post('api/payment', )
-app.put('/api/checkout', )
-app.delete('/api/checkout', )
-
-app.get('/api/payment', )
+app.put(`/api/checkout/:username`, partsController.updateUsername);
+app.delete(`/api/checkout/:user_id`, partsController.deleteUser);
 
 app.post('/payment', cors(), async (req, res) => {
 let { amount, id} = req.body

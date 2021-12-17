@@ -44,7 +44,13 @@ module.exports = {
         return res.status(200).send(psus);
     },
 
-    // addCase: async(req,res) => {
-    //     const addcase = await req.app.post('db').add_transaction();
-    //     return res.status(200).send(addcase);
+    deleteUser: async(req, res) => {
+        const account = await req.app.get('db').delete_user()
+        return res.status(200).send(account)
+    },
+
+    updateUsername: async(req, res) => {
+        const newname = await req.app.get('db').update_username()
+        return res.status(200).send(newname)
     }
+}

@@ -1,15 +1,26 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import StripeContainer from '@stripe/react-stripe-js';
+// import { Elements } from '@stripe/react-stripe-js';
+import { PaymentForm } from '@stripe/react-stripe-js';
 ;
 class Checkout extends Component {
     constructor(props){
-        super(props)
+        super(props);
 
-        this.state = []
+        this.state = {
+            items:[],
+    };
     }
+    updateItem(showItem){ 
+        this.setState({
+          showItem,
+        })
+      }
+
 
     render(){
-        const items = this.state;
+        const { items } = this.state;
         return(
         <div className="box1">
                     {items.map((e,i)=> {
@@ -17,9 +28,7 @@ class Checkout extends Component {
                         }} className = "itemsReturned" key={i}><img src={e.item_image} alt="Memory"/>
                         {e.item_name} {e.item_type} {e.stars} {e.price}</div>
                     })}
-                    <Link to='/payment'>
-                    <button className = "pay-button">Pay now!</button>
-                    </Link>
+        {/* <button onClick={() => <StripeContainer} /> Pay Now!</button> */}
                     <section>
                 <button type="submit" role="link">
                     Checkout

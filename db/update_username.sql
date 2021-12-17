@@ -1,0 +1,2 @@
+ALTER USER $1
+RENAME TO = $1;

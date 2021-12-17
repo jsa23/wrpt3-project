@@ -13,7 +13,7 @@ class Header extends Component {
         this.register = this.register.bind(this);
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
-    }
+        }
 
         handleUsernameInput(value) {
             this.setState({ username: value });
@@ -53,6 +53,22 @@ class Header extends Component {
             })
             .catch(err => console.log(err));
         }
+
+
+        deleteUsername(user_id) {
+            axios.delete(`/api/checkout/${user_id}`)
+            .then(console.log('nothing'))
+            .catch((err) => { console.log(err)})
+            }
+
+        updateUsername(username) {
+            axios.put(`/api/checkout/${username}`)
+            .then(console.log('success hopefully'))
+            .catch((err) => console.log(err, 'error'))
+        }
+        
+
+
 
         render() {
             const { username, password } = this.state;
@@ -96,6 +112,20 @@ class Header extends Component {
                             <h4>{user.username}, Lets build your computer!</h4>
                             <button type="submit" onClick={this.logout}>
                                 Logout
+                            </button>
+                            <button type="submit" onClick={this.deleteUsername}>
+                                Delete my account forever
+                            </button>
+                            <div className ="usernameUpdatedField">
+                                <input
+                                type="text"
+                                placeholder="new username"
+                                value={username}
+                                onChange={e => this.handleUsernameInput(e.target.value)}
+                                />
+                                </div>
+                            <button type="submit" onClick={this.updateUsername} id="reg">
+                                Change my Username
                             </button>
                         </div>
                     ) : (
