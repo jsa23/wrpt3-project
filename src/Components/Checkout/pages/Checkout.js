@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 // import { Link } from 'react-router-dom'
-import StripeContainer from '@stripe/react-stripe-js';
+import StripeContainer from './StripeContainer';
 // import { Elements } from '@stripe/react-stripe-js';
 import { PaymentForm } from '@stripe/react-stripe-js';
+import { connect }from 'react-redux';
 ;
 class Checkout extends Component {
     constructor(props){
@@ -10,6 +11,7 @@ class Checkout extends Component {
 
         this.state = {
             items:[],
+            showItem: (false)
     };
     }
     updateItem(showItem){ 
@@ -21,6 +23,7 @@ class Checkout extends Component {
 
     render(){
         const { items } = this.state;
+        const { showItem}  = this.state;
         return(
         <div className="box1">
                     {items.map((e,i)=> {
@@ -28,7 +31,8 @@ class Checkout extends Component {
                         }} className = "itemsReturned" key={i}><img src={e.item_image} alt="Memory"/>
                         {e.item_name} {e.item_type} {e.stars} {e.price}</div>
                     })}
-        {/* <button onClick={() => <StripeContainer} /> Pay Now!</button> */}
+                    {showItem && <StripeContainer total={this.props.total}/>}
+                    <button onClick={() => {this.setState({showItem: true})}}>Pay Now </button>
                     <section>
                 <button type="submit" role="link">
                     Checkout
@@ -65,5 +69,14 @@ class Checkout extends Component {
     )
 }
 }
-
-export default Checkout;
+const mapStateToProps = (state) => {
+    const total =
+    state.cart.cart.reduce((acc, cur) => {
+    acc += +cur.price.substring(1)
+    return acc;
+    },0)
+  return {
+      total
+  } 
+};
+export default connect(mapStateToProps)(Checkout);

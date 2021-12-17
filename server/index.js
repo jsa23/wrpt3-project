@@ -64,7 +64,8 @@ app.get('/api/fans', partsController.fanParts);
 
 app.get('/api/psus', partsController.psuParts);
 
-app.put(`/api/checkout/:username`, partsController.updateUsername);
+app.put(`/api/checkout`, partsController.updateUsername);
+
 app.delete(`/api/checkout/:user_id`, partsController.deleteUser);
 
 app.post('/payment', cors(), async (req, res) => {

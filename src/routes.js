@@ -10,7 +10,7 @@ import Memory from "./Components/Memory/Memory";
 import Motherboards from "./Components/Motherboards/Motherboards";
 import Psus from "./Components/Psus/Psus";
 import Checkout from "./Components/Checkout/pages/Checkout";
-import StripeContainer from '@stripe/react-stripe-js';
+
 
 export default (
 <Switch>

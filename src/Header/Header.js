@@ -4,8 +4,8 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 
 class Header extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             username: '',
             password: '',
@@ -13,6 +13,8 @@ class Header extends Component {
         this.register = this.register.bind(this);
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
+        this.deleteUsername=this.deleteUsername.bind(this);
+        this.updateUsername=this.updateUsername.bind(this);
         }
 
         handleUsernameInput(value) {
@@ -27,6 +29,7 @@ class Header extends Component {
             const { username, password } = this.state;
             axios.post('/api/login', { username, password })
             .then(user => {
+                console.log(user)
                 this.props.updateUser(user.data);
                 this.setState({ username: '', password: ''});
             })
@@ -55,15 +58,15 @@ class Header extends Component {
         }
 
 
-        deleteUsername(user_id) {
-            axios.delete(`/api/checkout/${user_id}`)
+        deleteUsername() {
+            axios.delete(`/api/checkout/${this.props.user.id}`)
             .then(console.log('nothing'))
             .catch((err) => { console.log(err)})
             }
 
-        updateUsername(username) {
-            axios.put(`/api/checkout/${username}`)
-            .then(console.log('success hopefully'))
+        updateUsername() {
+            axios.put(`/api/checkout`, {...this.props.user, username: this.state.username})
+            .then((res) => this.props.updateUser({username: res.data.username, id: res.data.user_id}))
             .catch((err) => console.log(err, 'error'))
         }
         

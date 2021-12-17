@@ -14,7 +14,7 @@ class App extends Component {
 
     this.state = {
       user:{},
-      showItem:(false),
+      // showItem:(false),
     };
     this.updateUser = this.updateUser.bind(this);
   }
@@ -42,14 +42,12 @@ class App extends Component {
         <Header user={user} updateUser={this.updateUser} />
         <Link exact path="/products" component={ProductList} />
         <Link path="/my-cart" component={Cart} />
-        {showItem ? <StripeContainer/> :<> 
-        <button onClick={() => this.updateItem(true)}> Pay Now </button></>}
         <Navbar />
       {routes}
       </div>
       </HashRouter>
     )}
-  }
+    }
 export default App;
 
 

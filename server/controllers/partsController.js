@@ -45,12 +45,15 @@ module.exports = {
     },
 
     deleteUser: async(req, res) => {
-        const account = await req.app.get('db').delete_user()
+        const account = await req.app.get('db').delete_user(req.params.user_id)
+        req.session.destroy()
         return res.status(200).send(account)
     },
 
     updateUsername: async(req, res) => {
-        const newname = await req.app.get('db').update_username()
-        return res.status(200).send(newname)
+        const { id, username } = req.body
+        console.log(req.body)
+        const newname = await req.app.get('db').update_username(username, id)
+        return res.status(200).send(newname[0])
     }
 }
