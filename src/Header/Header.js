@@ -71,8 +71,6 @@ class Header extends Component {
         }
         
 
-
-
         render() {
             const { username, password } = this.state;
             const { user } = this.props;

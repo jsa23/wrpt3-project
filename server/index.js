@@ -2,9 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 const session = require('express-session');
-const authController = require('./controllers/authController');
-const partsController = require('./controllers/partsController');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST);
+const { logout, register, login } = require('./controllers/authController')
+const { caseParts, coolerParts, cpuParts, fanParts, gpuParts, memoryParts, motherboardParts,
+    psuParts, updateUsername, deleteUser } = require('./controllers/partsController');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -41,32 +42,31 @@ app.use(
     })
 );
 
-// app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/../build`));
 
-app.get('/api/home', partsController.computerParts);
-app.get('/api/logout', authController.logout);
-app.post('/api/register', authController.register);
-app.post('/api/login', authController.login);
+app.get('/api/logout', logout);
+app.post('/api/register', register);
+app.post('/api/login', login);
 
-app.get('/api/cases', partsController.caseParts);
+app.get('/api/cases', caseParts);
 
-app.get('/api/motherboards', partsController.motherboardParts);
+app.get('/api/motherboards', motherboardParts);
 
-app.get('/api/cpus', partsController.cpuParts); 
+app.get('/api/cpus', cpuParts); 
 
-app.get('/api/gpus', partsController.gpuParts);
+app.get('/api/gpus', gpuParts);
 
-app.get('/api/coolers', partsController.coolerParts);
+app.get('/api/coolers', coolerParts);
 
-app.get('/api/memory', partsController.memoryParts);
+app.get('/api/memory', memoryParts);
 
-app.get('/api/fans', partsController.fanParts);
+app.get('/api/fans', fanParts);
 
-app.get('/api/psus', partsController.psuParts);
+app.get('/api/psus', psuParts);
 
-app.put(`/api/checkout`, partsController.updateUsername);
+app.put(`/api/checkout`, updateUsername);
 
-app.delete(`/api/checkout/:user_id`, partsController.deleteUser);
+app.delete(`/api/checkout/:user_id`, deleteUser);
 
 app.post('/payment', cors(), async (req, res) => {
 let { amount, id} = req.body
@@ -91,5 +91,7 @@ try {
     }
 })
 
-app.listen(4500, ()=> 
+const port = process.env.PORT || 4500;
+
+app.listen(port, () => 
 console.log(`listening on 4500`))

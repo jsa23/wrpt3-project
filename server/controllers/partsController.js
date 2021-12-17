@@ -1,8 +1,4 @@
 module.exports = {
-    computerParts: async(req, res) => {
-        const parts =  await req.app.get('db').get_computer_parts();
-        return res.status(200).send(parts);
-    },
 
     caseParts: async (req, res) => {
         const cases = await req.app.get('db').get_case_parts();

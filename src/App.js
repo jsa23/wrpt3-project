@@ -6,7 +6,6 @@ import './App.css';
 import ProductList from './Components/ProductList';
 import Cart from './Cart/Cart';
 import Navbar from './Components/NavBar';
-import StripeContainer from './Components/Checkout/pages/StripeContainer';
 
 class App extends Component {
   constructor(){
@@ -14,7 +13,6 @@ class App extends Component {
 
     this.state = {
       user:{},
-      // showItem:(false),
     };
     this.updateUser = this.updateUser.bind(this);
   }
@@ -34,7 +32,6 @@ class App extends Component {
 
   render(){
     const { user  } = this.state;
-    const { showItem } = this.state;
     
     return(
       <HashRouter>
