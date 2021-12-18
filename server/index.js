@@ -42,6 +42,9 @@ massive({
     console.log('db connected');
 }).catch((err) => {
      console.log('Datbase Connecton Error', err)
+})
+
+
 // app.use(express.static(`${__dirname}/../build`));
 
 app.get('/api/logout', logout);
