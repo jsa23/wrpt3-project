@@ -11,6 +11,7 @@ const cors = require('cors');
 
 
 const { CONNECTION_STRING, SESSION_SECRET } = process.env;
+const dotenv = require('dotenv').config();
 
 const app = express();
 
@@ -35,14 +36,14 @@ app.use(
     session({
         resave: false,
         saveUninitialized: true,
-        secret: SESSION_SECRET,
+        secret: process.env.SESSION_SECRET,
         cookie: {
              maxAge: 1000 * 60 * 60 
             }
     })
 );
 
-app.use(express.static(`${__dirname}/../build`));
+// app.use(express.static(`${__dirname}/../build`));
 
 app.get('/api/logout', logout);
 app.post('/api/register', register);
