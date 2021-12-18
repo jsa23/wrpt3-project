@@ -1,6 +1,6 @@
-require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
+require('dotenv').config();
 const session = require('express-session');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST);
 const { logout, register, login } = require('./controllers/authController')
@@ -15,8 +15,6 @@ const cors = require('cors');
 
 const app = express();
 
-// app.use(cors())
-
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
@@ -26,9 +24,9 @@ app.use(express.json());
 
 
 app.use(session({
-    secret :process.env.SESSION_SECRET,
     resave : false,
     saveUninitialized: true,
+    secret :process.env.SESSION_SECRET,
     cookie : {
         maxAge:(1000 * 60 * 100)
     }      
@@ -36,11 +34,14 @@ app.use(session({
 
 massive({
     connectionString:process.env.CONNECTION_STRING,
-    ssl: { rejectUnauthorized:false }
+    ssl: { 
+        rejectUnauthorized:false
+    }
 }).then((db)=> {
     app.set('db', db);  
     console.log('db connected');
-});
+}).catch((err) => {
+     console.log('Datbase Connecton Error', err)
 // app.use(express.static(`${__dirname}/../build`));
 
 app.get('/api/logout', logout);
