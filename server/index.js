@@ -10,8 +10,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 
+
 const { CONNECTION_STRING, SESSION_SECRET } = process.env;
-const dotenv = require('dotenv').config();
+// const dotenv = require('dotenv').config();
 
 const app = express();
 
@@ -25,23 +26,21 @@ app.use(cors())
 app.use(express.json());
 
 massive({
-    connectionString: CONNECTION_STRING,
-    ssl: { rejectUnauthorized: false }
+    connectionString:CONNECTION_STRING,
+    ssl: { rejectUnauthorized:false }
 }).then(db => {
     app.set('db', db);  
     console.log('db connected');
 });
 
-app.use(
-    session({
-        resave: false,
-        saveUninitialized: true,
-        secret: process.env.SESSION_SECRET,
-        cookie: {
-             maxAge: 1000 * 60 * 60 
-            }
-    })
-);
+app.use(session({
+    secret :SESSION_SECRET,
+    resave :true,
+    saveUninitialized:true,
+    cookie : {
+            maxAge:(1000 * 60 * 100)
+    }      
+}));
 
 // app.use(express.static(`${__dirname}/../build`));
 

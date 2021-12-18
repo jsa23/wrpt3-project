@@ -6,6 +6,7 @@ import './App.css';
 import ProductList from './Components/ProductList';
 import Cart from './Cart/Cart';
 import Navbar from './Components/NavBar';
+// require('dotenv').config()
 
 class App extends Component {
   constructor(){
