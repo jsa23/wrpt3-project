@@ -11,7 +11,6 @@ const cors = require('cors');
 
 
 
-const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 // const dotenv = require('dotenv').config();
 
 const app = express();
@@ -25,23 +24,23 @@ app.use(cors())
 
 app.use(express.json());
 
-massive({
-    connectionString:CONNECTION_STRING,
-    ssl: { rejectUnauthorized:false }
-}).then(db => {
-    app.set('db', db);  
-    console.log('db connected');
-});
 
 app.use(session({
     secret :process.env.SESSION_SECRET,
-    resave :true,
-    saveUninitialized:true,
+    resave : false,
+    saveUninitialized: true,
     cookie : {
-            maxAge:(1000 * 60 * 100)
+        maxAge:(1000 * 60 * 100)
     }      
 }));
 
+massive({
+    connectionString:process.env.CONNECTION_STRING,
+    ssl: { rejectUnauthorized:false }
+}).then((db)=> {
+    app.set('db', db);  
+    console.log('db connected');
+});
 // app.use(express.static(`${__dirname}/../build`));
 
 app.get('/api/logout', logout);
