@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from 'react-router-dom'
 import StripeContainer from './StripeContainer';
-// import { Elements } from '@stripe/react-stripe-js';
-import { PaymentForm } from '@stripe/react-stripe-js';
 import { connect }from 'react-redux';
 ;
 class Checkout extends Component {
