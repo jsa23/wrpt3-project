@@ -32,7 +32,7 @@ app.use(session({
     }      
 }));
 
-massive({
+massive({     
     connectionString:process.env.CONNECTION_STRING,
     ssl: { 
         rejectUnauthorized:false
