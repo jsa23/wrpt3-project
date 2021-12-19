@@ -6,31 +6,28 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST);
 const { logout, register, login } = require('./controllers/authController')
 const { caseParts, coolerParts, cpuParts, fanParts, gpuParts, memoryParts, motherboardParts,
     psuParts, updateUsername, deleteUser } = require('./controllers/partsController');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const cors = require('cors');
 
 
 
 // const dotenv = require('dotenv').config();
 
+
+
+
 const app = express();
-
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
-
-app.use(cors())
 
 app.use(express.json());
 
-
-app.use(session({
+app.use(require(express-session({
     resave : false,
     saveUninitialized: true,
     secret :process.env.SESSION_SECRET,
     cookie : {
         maxAge:(1000 * 60 * 100)
     }      
-}));
+})))
 
 massive({     
     connectionString:process.env.CONNECTION_STRING,
