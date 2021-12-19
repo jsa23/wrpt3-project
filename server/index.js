@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(session({
     resave: false,
     saveUninitialized: true,
-    secret: 'process.env.SESSION_SECRET',
+    secret:process.env.SESSION_SECRET,
     cookie: {
         maxAge:(1000 * 60 * 100)
     }      
@@ -33,6 +33,17 @@ massive({
 }).catch((err) => {
      console.log('Datbase Connecton Error', err)
 })
+
+if (process.env.NODE_ENV === 'production') {
+    // Exprees will serve up production assets
+    app.use(express.static('client/build'));
+  
+    // Express serve up index.html file if it doesn't recognize route
+    const path = require('path');
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+  }
 
 
 // app.use(express.static(`${__dirname}/../build`));
@@ -82,9 +93,9 @@ try {
             success: false
         })
     }
-});
+})
 
-const port = process.env.PORT || 4500;
+const port = process.env.PORT || 5432;
 
 app.listen(port, () => 
-console.log(`listening on 4500`))
+console.log(`listening on 5432`))
