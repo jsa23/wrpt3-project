@@ -20,14 +20,14 @@ const app = express();
 
 app.use(express.json());
 
-app.use(require(express-session({
+app.use(session({
     resave : false,
     saveUninitialized: true,
-    secret :process.env.SESSION_SECRET,
+    secret :process.env.SECRET,
     cookie : {
         maxAge:(1000 * 60 * 100)
     }      
-})))
+}))
 
 massive({     
     connectionString:process.env.CONNECTION_STRING,
