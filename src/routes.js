@@ -24,6 +24,5 @@ export default (
     <Route component ={Memory} path="/memory" />
     <Route component ={Psus} path="/psus"  />
     <Route component ={Checkout} path="/checkout" />
-    {/* <Route component = {StripeContainer} path="/payment" /> */}
 </Switch>
 );

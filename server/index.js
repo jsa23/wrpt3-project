@@ -6,14 +6,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST);
 const { logout, register, login } = require('./controllers/authController')
 const { caseParts, coolerParts, cpuParts, fanParts, gpuParts, memoryParts, motherboardParts,
     psuParts, updateUsername, deleteUser } = require('./controllers/partsController');
-// const bodyParser = require('body-parser');
 const cors = require('cors');
-
-
-
-// const dotenv = require('dotenv').config();
-
-
 
 
 const app = express();
@@ -21,10 +14,10 @@ const app = express();
 app.use(express.json());
 
 app.use(session({
-    resave : false,
+    resave: false,
     saveUninitialized: true,
-    secret :process.env.SECRET,
-    cookie : {
+    secret: process.env.SESSION_SECRET,
+    cookies: {
         maxAge:(1000 * 60 * 100)
     }      
 }))
@@ -89,9 +82,9 @@ try {
             success: false
         })
     }
-})
+});
 
-const port = process.env.PORT || 5432;
+const port = process.env.PORT || 4500;
 
 app.listen(port, () => 
-console.log(`listening on 5432`))
+console.log(`listening on 4500`))
