@@ -46,7 +46,7 @@ if (process.env.NODE_ENV === 'production') {
   }
 
 
-// app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/../build`));
 
 app.get('/api/logout', logout);
 app.post('/api/register', register);
