@@ -50,7 +50,7 @@ class Item extends Component {
                       <h2><strong>{ item.price } <span className="text-muted"></span></strong></h2>
                   </div>
                 <div className="col-xs-2">
-                    <button type="submit" onClick={this.handleRemove} className="btn btn-info">Delete</button>
+                    
                 </div>
             </div>
         </div>
