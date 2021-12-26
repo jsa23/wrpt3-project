@@ -5,7 +5,7 @@ class Cart extends Component
 {
     render() {
         const total = this.props.cart.reduce((acc, cur) => {
-        acc += +cur.price.substring(1)
+        acc += +cur.price.substring(2)
         return acc;
         },0)
         // this.props.cart.map(item => total += item.product.price * item.quantity);
