@@ -47,13 +47,27 @@ display: block;
         .loginContainer {
             display: inline-table;
         }
-        .navbar-brand {
+        .Home-btn {
             display: relative;
         }
+
     }
 
-    @media(max-width: 678px) {
+    @media(max-width: 650px) {
+        .Home-btn {
+            position: absolute;
+            top: 20px;
+            left: 10px;
         }
+        }
+
+    @media(max-width: 369px) {
+        .Home-btn {
+            position: absolute;
+            top: 40px;
+            left: 10px;
+        }
+    }
     
 
     .title {
