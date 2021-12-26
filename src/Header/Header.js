@@ -77,7 +77,7 @@ class Header extends Component {
             return (
                 <div className="Header">
                 <Link className = "navbar-brand" to="/">
-                    <button>Home</button>
+                    <button className="Home-btn">Home</button>
                 </Link>
             <style jsx>
                 {`
