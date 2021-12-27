@@ -40,7 +40,7 @@ export default function PaymentForm(props) {
     if(!error) {
         try {
             const {id} = paymentMethod
-            const response = await axios.post("http://localhost:5432/payment", {
+            const response = await axios.post("/api/payment", {
                 amount: props.total,
                 id
             })

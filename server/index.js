@@ -72,7 +72,7 @@ app.put(`/api/checkout`, updateUsername);
 
 app.delete(`/api/checkout/:user_id`, deleteUser);
 
-app.post('/payment', cors(), async (req, res) => {
+app.post('/api/payment', cors(), async (req, res) => {
 let { amount, id} = req.body
 try {
     const payment = await stripe.paymentIntents.create({
