@@ -6,9 +6,9 @@ class Cart extends Component
     render() {
         const total = this.props.cart.reduce((acc, cur) => {
         acc += +cur.price.substring(1)
+        console.log(cur,acc)
         return acc;
         },0)
-        // this.props.cart.map(item => total += item.product.price * item.quantity);
         const cart = this.props.cart.length > 0?(
             <div>
                 <div className="panel-body">
@@ -44,9 +44,9 @@ class Cart extends Component
                                 <div className="panel-heading">
                                                 <h5><span className="glyphicon glyphicon-shopping-cart"></span> My Shopping Cart</h5>
                                             </div>
-                                { cart }
                             </div>
                         </div>
+                                { cart }
                     </div>
         )
     }
