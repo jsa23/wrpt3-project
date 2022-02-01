@@ -47,6 +47,8 @@ background-origin: lightgrey;
     @media(max-width: 550px) {
         .loginContainer {
             display: inline-table;
+            height: 42px;
+
         }
         .Home-btn {
             display: relative;
